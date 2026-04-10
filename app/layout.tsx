@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import { Bebas_Neue, DM_Sans } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import PageTransition from "@/components/PageTransition";
+import type { Metadata } from "next";
+import { Bebas_Neue, Figtree } from "next/font/google";
+import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -12,9 +12,8 @@ const bebasNeue = Bebas_Neue({
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
   variable: "--font-body",
   display: "swap",
 });
@@ -49,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${dmSans.variable}`}
+      className={`${bebasNeue.variable} ${figtree.variable}`}
     >
       <body
         className="min-h-screen flex flex-col"

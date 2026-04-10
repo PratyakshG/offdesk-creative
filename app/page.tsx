@@ -4,6 +4,7 @@ import {
   StaggerChildren,
   StaggerItem,
 } from "@/components/Reveal";
+import Image from "next/image";
 import Link from "next/link";
 
 const testimonials = [
@@ -48,10 +49,10 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center overflow-hidden"
         style={{ backgroundColor: "var(--color-bg)" }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-16 w-full">
-          <div className="max-w-2xl">
+        <div className="relative flex max-lg:flex-col lg:items-center justify-between gap-10 max-w-7xl z-10 mx-auto px-6 lg:px-10 pt-24 pb-16 w-full">
+          <div className="lg:min-w-lg max-w-2xl">
             {/* Large stacked text */}
-            <div style={{ overflow: "hidden" }}>
+            <div className="overflow-hidden">
               <RevealText
                 delay={0}
                 className="block"
@@ -88,11 +89,12 @@ export default function HomePage() {
             <Reveal delay={0.3}>
               <h2
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(1.5rem,3vw,2.5rem)",
                   color: "white",
                   marginTop: "1.5rem",
                 }}
+                className="leading-tight tracking-tighter"
               >
                 Your Vision, Our Lens
                 <br />
@@ -114,6 +116,16 @@ export default function HomePage() {
               </div>
             </Reveal>
           </div>
+
+          <Reveal delay={0.65} className="w-full">
+            <Image
+              src="/images/home/heroBg.png"
+              alt="heroBg"
+              height={720}
+              width={756}
+              className="w-full h-auto object-contain"
+            />
+          </Reveal>
         </div>
       </section>
 
@@ -145,7 +157,7 @@ export default function HomePage() {
                   paddingRight: "1.5rem",
                 }}
               >
-                PHOTOSTUDIO&nbsp;—&nbsp;
+                PHOTOSTUDIO —
               </span>
             ))}
         </div>
@@ -173,24 +185,23 @@ export default function HomePage() {
               </p>
             </div>
           </Reveal>
-          <StaggerChildren className="grid grid-cols-3 gap-2">
+          <StaggerChildren className="grid grid-cols-7 gap-2 *:odd:col-span-2 *:even:col-span-3 *:last:place-content-end">
             {[...Array(3)].map((_, i) => (
               <StaggerItem key={i}>
                 <div
                   style={{
                     backgroundColor: "var(--color-bg-card)",
-                    aspectRatio: "4/3",
+                    aspectRatio: "1/1",
                     border: "1px solid var(--color-border)",
                   }}
                   className="overflow-hidden group"
                 >
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background: `linear-gradient(135deg, hsl(${20 + i * 30},40%,12%) 0%, hsl(${i * 40},20%,8%) 100%)`,
-                    }}
-                    className="group-hover:scale-105 transition-transform duration-700"
+                  <Image
+                    src={`/images/home/image${i + 1}.png`}
+                    alt="images"
+                    height={300}
+                    width={300}
+                    className="group-hover:scale-105 transition-transform duration-700 h-full w-full object-cover"
                   />
                 </div>
               </StaggerItem>
@@ -240,7 +251,7 @@ export default function HomePage() {
                     paddingRight: "1.5rem",
                   }}
                 >
-                  AD – SHOOTS&nbsp;—&nbsp;
+                  AD-SHOOTS -
                 </span>
               ))}
           </div>
@@ -409,9 +420,8 @@ export default function HomePage() {
                 href="/about"
                 style={{
                   border: "1px solid var(--color-accent)",
-                  color: "var(--color-accent)",
                 }}
-                className="inline-block text-xs uppercase tracking-widest font-semibold px-5 py-2.5 hover:bg-[var(--color-accent)] hover:text-white transition-all"
+                className="inline-block text-xs uppercase tracking-widest font-semibold px-5 py-2.5 text-accent hover:bg-accent hover:text-white transition-all"
               >
                 About Us →
               </Link>

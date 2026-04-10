@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -46,15 +47,14 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
-            style={{
-              fontFamily: "var(--font-display)",
-              letterSpacing: "0.05em",
-            }}
-            className="text-2xl text-white"
-          >
-            STUDIO<span style={{ color: "var(--color-accent)" }}>.</span>
+          <Link href="/">
+            <Image
+              src="/images/image.png"
+              alt="logo"
+              height={203}
+              width={585}
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop */}
@@ -65,27 +65,15 @@ export default function Navbar() {
                 <li key={href}>
                   <Link
                     href={href}
-                    style={{
-                      color: active
-                        ? "var(--color-accent)"
-                        : "rgba(255,255,255,0.75)",
-                    }}
-                    className="text-sm font-medium tracking-wide relative group transition-colors duration-200 hover:text-white"
+                    className={`text-sm font-medium tracking-wide relative group transition-colors duration-200 ${
+                      active
+                        ? "text-accent"
+                        : "text-[rgba(255,255,255,0.5)] hover:text-white"
+                    }`}
                   >
                     {label}
                     <span
-                      style={{
-                        position: "absolute",
-                        bottom: "-4px",
-                        left: 0,
-                        right: 0,
-                        height: "1px",
-                        backgroundColor: "var(--color-accent)",
-                        transformOrigin: "left",
-                        transform: active ? "scaleX(1)" : "scaleX(0)",
-                        transition: "transform 0.3s ease",
-                      }}
-                      className="group-hover:scale-x-100"
+                      className={`absolute -bottom-1 left-0 right-0 h-px bg-accent origin-left transition-transform duration-300 group-hover:scale-x-100 ease-in-out ${active ? "scale-x-100" : "scale-x-0"}`}
                     />
                   </Link>
                 </li>
