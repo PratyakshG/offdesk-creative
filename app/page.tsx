@@ -1,3 +1,4 @@
+import HoverVideo from "@/components/Hovervideo";
 import {
   Reveal,
   RevealText,
@@ -117,7 +118,10 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.65} className="w-full">
+          <Reveal
+            delay={0.65}
+            className="w-full"
+          >
             <Image
               src="/images/home/heroBg.png"
               alt="heroBg"
@@ -149,15 +153,13 @@ export default function HomePage() {
               <span
                 key={i}
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(3rem,7vw,5.5rem)",
+                  fontSize: "clamp(4rem,10vw,8rem)",
                   color: i % 2 === 0 ? "white" : "transparent",
                   WebkitTextStroke: "1px rgba(255,255,255,0.3)",
-                  letterSpacing: "0.02em",
-                  paddingRight: "1.5rem",
                 }}
+                className="pr-8 lg:pr-16 font-bold font-body"
               >
-                PHOTOSTUDIO —
+                PHOTOSTUDIO
               </span>
             ))}
         </div>
@@ -242,16 +244,14 @@ export default function HomePage() {
                 <span
                   key={i}
                   style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(3rem,7vw,5.5rem)",
+                    fontSize: "clamp(4rem,10vw,8rem)",
                     color: i % 2 === 0 ? "var(--color-accent)" : "transparent",
                     WebkitTextStroke: `1px var(--color-accent)`,
                     opacity: i % 2 === 0 ? 1 : 0.3,
-                    letterSpacing: "0.02em",
-                    paddingRight: "1.5rem",
                   }}
+                  className="pr-8 lg:pr-16 font-bold font-body"
                 >
-                  AD-SHOOTS -
+                  AD-SHOOTS
                 </span>
               ))}
           </div>
@@ -271,45 +271,7 @@ export default function HomePage() {
                   }}
                   className="group cursor-pointer"
                 >
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background: `linear-gradient(135deg, hsl(${200 + i * 20},30%,10%) 0%, hsl(${i * 30},20%,6%) 100%)`,
-                    }}
-                    className="group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "50%",
-                        border: "2px solid rgba(255,255,255,0.4)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: "rgba(255,255,255,0.6)",
-                          fontSize: "1rem",
-                          marginLeft: "3px",
-                        }}
-                      >
-                        ▶
-                      </span>
-                    </div>
-                  </div>
+                  <HoverVideo src="/video-1.mp4" />
                 </div>
               </StaggerItem>
             ))}
@@ -450,15 +412,13 @@ export default function HomePage() {
                 <span
                   key={i}
                   style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(3rem,7vw,5.5rem)",
+                    fontSize: "clamp(4rem,10vw,8rem)",
                     color: i % 2 === 0 ? "white" : "transparent",
                     WebkitTextStroke: "1px rgba(255,255,255,0.2)",
-                    letterSpacing: "0.02em",
-                    paddingRight: "1.5rem",
                   }}
+                  className="pr-8 lg:pr-16 font-bold font-body"
                 >
-                  GRAPHIC DESIGN&nbsp;—&nbsp;
+                  GRAPHIC DESIGN
                 </span>
               ))}
           </div>
@@ -632,7 +592,7 @@ export default function HomePage() {
             direction="right"
             delay={0.15}
           >
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-2 items-center">
               <input
                 type="email"
                 placeholder="Your email address"
@@ -642,7 +602,7 @@ export default function HomePage() {
                   border: "1px solid rgba(0,0,0,0.2)",
                   padding: "10px 16px",
                   fontSize: "0.875rem",
-                  minWidth: "240px",
+                  minWidth: "210px",
                   outline: "none",
                 }}
                 className="placeholder:text-[rgba(0,0,0,0.4)]"
@@ -651,7 +611,7 @@ export default function HomePage() {
                 style={{
                   backgroundColor: "var(--color-bg)",
                   color: "white",
-                  padding: "11px 20px",
+                  padding: "11px 16px",
                   fontWeight: 600,
                   fontSize: "0.875rem",
                   cursor: "pointer",
