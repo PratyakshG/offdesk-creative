@@ -1,43 +1,45 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import {
   Reveal,
   RevealText,
   StaggerChildren,
   StaggerItem,
-  RevealLine,
 } from "@/components/Reveal";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { BiVideoRecording } from "react-icons/bi";
+import { GiClapperboard, GiFilmStrip } from "react-icons/gi";
 
 export const metadata: Metadata = { title: "About Us" };
 
 const values = [
   {
-    icon: "✦",
+    icon: <BiVideoRecording />,
     title: "Creativity",
+    desc: "We believe every project deserves fresh ideas and unique perspectives.",
     points: [
-      "Every project deserves bold ideas",
-      "Authentic & understanding",
-      "Stand-alone Innovation",
-      "Standout, devoted content",
+      "Authentic brand understanding",
+      "Trend-driven innovation",
+      "Standout, tailored content",
     ],
   },
   {
-    icon: "⚡",
+    icon: <GiClapperboard />,
     title: "Collaboration",
+    desc: "Your input matters. Together we create magic.",
     points: [
-      "Your input matters. Together we create magic.",
-      "We value your passion",
-      "Collaborate in our own way to — bring your Ideas",
+      "Your vision, our passion",
+      "Collaborate drives creativity",
+      "Empowering your ideas",
     ],
   },
   {
-    icon: "◈",
+    icon: <GiFilmStrip />,
     title: "Excellence",
+    desc: "From pre-production to the final edit, we deliver nothing but the best.",
     points: [
-      "From pre-production to the final edit, we aim for the best.",
       "High-quality planning",
-      "End-to-end production",
-      "Creative editing process",
+      "Detailed pre-production",
+      "Flawless editing process",
     ],
   },
 ];
@@ -93,23 +95,14 @@ export default function AboutPage() {
             <RevealText>
               <h1
                 style={{
-                  fontFamily: "var(--font-display)",
                   fontSize: "clamp(2.5rem,6vw,4.5rem)",
                   color: "white",
-                  letterSpacing: "0.05em",
                 }}
+                className="font-body uppercase font-bold"
               >
                 About Us
               </h1>
             </RevealText>
-            <Reveal delay={0.15}>
-              <p
-                style={{ color: "var(--color-muted)", letterSpacing: "0.2em" }}
-                className="text-xs uppercase mt-2"
-              >
-                HOME &nbsp;/&nbsp; ABOUT US
-              </p>
-            </Reveal>
           </div>
         </div>
       </section>
@@ -136,7 +129,7 @@ export default function AboutPage() {
             <RevealText>
               <h2
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(2.5rem,5vw,4rem)",
                   color: "white",
                   lineHeight: 1.1,
@@ -224,7 +217,7 @@ export default function AboutPage() {
                 key={i}
                 style={{
                   color: "rgba(255,255,255,0.2)",
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "1.5rem",
                   letterSpacing: "0.1em",
                   paddingRight: "3rem",
@@ -270,7 +263,7 @@ export default function AboutPage() {
             >
               <p
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(3rem,8vw,7rem)",
                   color: "rgba(255,255,255,0.05)",
                   letterSpacing: "0.1em",
@@ -293,17 +286,16 @@ export default function AboutPage() {
             <Reveal>
               <p
                 style={{
-                  color: "var(--color-muted)",
-                  letterSpacing: "0.15em",
+                  letterSpacing: "0.1em",
                   marginBottom: "0.75rem",
                 }}
-                className="text-xs uppercase"
+                className="text-xs uppercase text-muted"
               >
                 WHAT WE DO
               </p>
               <h2
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(2rem,4vw,3rem)",
                   color: "white",
                 }}
@@ -361,14 +353,14 @@ export default function AboutPage() {
               >
                 <div
                   style={{
-                    borderTop: "1px solid var(--color-border)",
                     paddingTop: "1.5rem",
                   }}
+                  className="border-t border-t-muted/50"
                 >
                   <div className="flex gap-6 items-start">
                     <p
                       style={{
-                        fontFamily: "var(--font-display)",
+                        fontFamily: "var(--font-body)",
                         fontSize: "clamp(2.5rem,5vw,4rem)",
                         color: "white",
                         lineHeight: 1,
@@ -422,57 +414,40 @@ export default function AboutPage() {
                   }}
                   className="text-xs uppercase mb-1"
                 >
-                  OUR VIDEO
+                  OUR WORKS
                 </p>
                 <h2
                   style={{
-                    fontFamily: "var(--font-display)",
                     fontSize: "clamp(2rem,4vw,3rem)",
-                    color: "white",
                   }}
+                  className="font-body font-bold"
                 >
                   How we craft your videos.
                 </h2>
               </div>
             </Reveal>
           </div>
-          <StaggerChildren className="grid md:grid-cols-3 gap-px bg-border">
+          <StaggerChildren className="grid md:grid-cols-3 gap-5">
             {values.map((v) => (
               <StaggerItem key={v.title}>
-                <div
-                  style={{
-                    backgroundColor: "var(--color-bg)",
-                    padding: "2rem",
-                  }}
-                  className="group hover:bg-[var(--color-bg-card)] transition-colors h-full"
-                >
-                  <div
-                    style={{
-                      fontSize: "1.5rem",
-                      marginBottom: "1rem",
-                      color: "var(--color-accent)",
-                    }}
-                  >
+                <div className="group bg-white p-8 hover:bg-bg-card hover:border-white transition-colors h-full border text-black hover:*:text-white">
+                  <div className="mb-4 group-hover:text-white text-5xl">
                     {v.icon}
                   </div>
-                  <h3
-                    style={{
-                      color: "white",
-                      fontWeight: 600,
-                      marginBottom: "1rem",
-                    }}
-                    className="text-base"
-                  >
+
+                  <h3 className="text-base group-hover:text-white font-semibold mb-4">
                     {v.title}
                   </h3>
-                  <ul className="space-y-1.5">
+
+                  <p className="mb-4 text-sm">{v.desc}</p>
+
+                  <ul className="space-y-1">
                     {v.points.map((p) => (
                       <li
                         key={p}
-                        style={{ color: "var(--color-muted)" }}
-                        className="text-xs leading-relaxed"
+                        className="text-sm leading-relaxed list-disc list-inside"
                       >
-                        · {p}
+                        {p}
                       </li>
                     ))}
                   </ul>
@@ -542,7 +517,7 @@ export default function AboutPage() {
             </p>
             <h2
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-body)",
                 fontSize: "clamp(2rem,4vw,3rem)",
                 color: "white",
                 marginBottom: "1rem",
@@ -586,7 +561,7 @@ export default function AboutPage() {
                 </p>
                 <h2
                   style={{
-                    fontFamily: "var(--font-display)",
+                    fontFamily: "var(--font-body)",
                     fontSize: "clamp(2rem,4vw,3rem)",
                     color: "white",
                   }}
@@ -673,7 +648,7 @@ export default function AboutPage() {
           <RevealText>
             <h2
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-body)",
                 fontSize: "clamp(2.5rem,6vw,5rem)",
                 color: "white",
               }}

@@ -2,225 +2,221 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-type Category = "Photography" | "Videography" | "Graphic Design";
-
-interface PortfolioItem {
-  id: number;
-  category: Category;
-  title: string;
-  span?: "wide" | "tall" | "normal";
-  bg: string;
-}
+import HoverVideo from "./Hovervideo";
+import Image from "next/image";
+import Masonry from "react-masonry-css";
 
 const items: PortfolioItem[] = [
   {
     id: 1,
     category: "Photography",
     title: "Lifestyle Product",
-    span: "wide",
-    bg: "linear-gradient(135deg,#1a1207 0%,#0a0a0a 100%)",
+    image: "/images/home/image1.png",
   },
   {
     id: 2,
     category: "Photography",
     title: "Fragrance Campaign",
-    bg: "linear-gradient(135deg,#071226 0%,#0a0a0a 100%)",
+    span: "tall",
+    image: "/images/home/image2.png",
   },
   {
     id: 3,
     category: "Photography",
     title: "Fashion Portrait",
-    bg: "linear-gradient(135deg,#1a0707 0%,#0a0a0a 100%)",
+    image: "/images/home/image3.png",
   },
   {
     id: 4,
     category: "Photography",
     title: "Coffee Still Life",
     span: "wide",
-    bg: "linear-gradient(135deg,#140e04 0%,#0a0a0a 100%)",
+    image: "/images/home/image1.png",
   },
   {
     id: 5,
     category: "Photography",
     title: "Traditional Attire",
     span: "tall",
-    bg: "linear-gradient(135deg,#1a0d00 0%,#0a0a0a 100%)",
+    image: "/images/home/image2.png",
   },
   {
     id: 6,
     category: "Photography",
     title: "Object Study",
-    bg: "linear-gradient(135deg,#0d1408 0%,#0a0a0a 100%)",
+    image: "/images/home/image3.png",
   },
   {
     id: 7,
     category: "Videography",
     title: "Black & White Portrait",
-    span: "wide",
-    bg: "linear-gradient(135deg,#1a1a1a 0%,#0a0a0a 100%)",
+    span: "tall",
+    video: "/Entrance%20Design%20Reel.mp4?updatedAt=1776164757268",
   },
   {
     id: 8,
     category: "Videography",
     title: "Documentary Subject",
-    span: "wide",
-    bg: "linear-gradient(135deg,#0f0f0f 0%,#0a0a0a 100%)",
+    span: "tall",
+    video: "/Entrance%20Design%20Reel.mp4?updatedAt=1776164757268",
   },
   {
     id: 9,
     category: "Graphic Design",
     title: "PVT LTD. Bags",
     span: "tall",
-    bg: "linear-gradient(135deg,#1a1207 0%,#080805 100%)",
+    image: "/images/home/image1.png",
   },
   {
     id: 10,
     category: "Graphic Design",
     title: "Pigeon Soft Bristles",
-    bg: "linear-gradient(135deg,#070e1a 0%,#050a0f 100%)",
+    image: "/images/home/image2.png",
   },
   {
     id: 11,
     category: "Graphic Design",
     title: "Smile Priority",
-    bg: "linear-gradient(135deg,#0d1a07 0%,#080f05 100%)",
+    image: "/images/home/image3.png",
   },
   {
     id: 12,
     category: "Graphic Design",
     title: "Acto Chromium Series",
-    bg: "linear-gradient(135deg,#0d0d0d 0%,#060606 100%)",
+    image: "/images/home/image1.png",
   },
   {
     id: 13,
     category: "Graphic Design",
     title: "Acto Small But Powerful",
-    bg: "linear-gradient(135deg,#07071a 0%,#040410 100%)",
+    image: "/images/home/image2.png",
   },
   {
     id: 14,
     category: "Graphic Design",
     title: "Brush Like A Pro",
     span: "wide",
-    bg: "linear-gradient(135deg,#070d1a 0%,#040812 100%)",
+    image: "/images/home/image3.png",
   },
   {
     id: 15,
     category: "Graphic Design",
     title: "Acto Small Stylish Powerful",
     span: "wide",
-    bg: "linear-gradient(135deg,#0d0707 0%,#0a0404 100%)",
+    image: "/images/home/image1.png",
   },
 ];
 
 export default function PortfolioGrid() {
   const [active, setActive] = useState<Category>("Photography");
+
   const filtered = items.filter((item) => item.category === active);
+
+  const getAspectClass = (span?: string) => {
+    if (span === "wide") return "aspect-[16/9]";
+    if (span === "tall") return "aspect-[9/16]";
+    return "aspect-square";
+  };
+
+  const breakpointColumnsObj = {
+    default: 3,
+    1024: 2,
+    640: 1,
+  };
 
   return (
     <div>
-      {/* Category Tabs */}
-      <div
-        style={{ borderBottom: "1px solid var(--color-border)" }}
-        className="mb-8"
-      >
-        <div className="flex gap-0">
-          {(["Photography", "Videography", "Graphic Design"] as Category[]).map(
-            (cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className={[
-                  "pb-3 pr-6 cursor-pointer transition-all duration-250 ease-in-out hover:text-white",
-                  "font-body text-sm bg-transparent border-0 border-b-2",
-                  active === cat
-                    ? "text-white border-b-accent font-semibold"
-                    : "text-muted border-b-transparent font-normal",
-                ].join(" ")}
-              >
-                {cat}
-              </button>
-            ),
-          )}
+      {/* Tabs */}
+      <div className="mb-8 border-b border-border">
+        <div className="flex">
+          {(
+            [
+              "Photography",
+              "Videography",
+              "Graphic Design",
+              "Ad-Shoots",
+            ] as Category[]
+          ).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`pb-3 pr-6 text-sm border-b-2 transition-all duration-200 ${
+                active === cat
+                  ? "text-white border-b-accent font-semibold"
+                  : "text-muted border-b-transparent"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Grid */}
+      {/* Masonry Grid */}
       <AnimatePresence mode="wait">
         <motion.div
           key={active}
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="grid grid-cols-3 gap-2"
-          style={{ gridAutoRows: "200px" }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4 }}
         >
-          {filtered.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: i * 0.05,
-                duration: 0.4,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              style={{
-                gridColumn: item.span === "wide" ? "span 2" : "span 1",
-                gridRow: item.span === "tall" ? "span 2" : "span 1",
-                backgroundColor: "var(--color-bg-card)",
-                border: "1px solid var(--color-border)",
-                overflow: "hidden",
-                cursor: "pointer",
-                position: "relative",
-              }}
-              className="group"
-            >
-              <div
-                style={{ width: "100%", height: "100%", background: item.bg }}
-                className="group-hover:scale-105 transition-transform duration-700"
-              />
-              {/* Hover overlay */}
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  backgroundColor: "rgba(8,8,8,0.8)",
-                  opacity: 0,
-                  transition: "opacity 0.3s ease",
-                  display: "flex",
-                  alignItems: "flex-end",
-                  padding: "1rem",
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="flex gap-3"
+            columnClassName="flex flex-col gap-3"
+          >
+            {filtered.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: i * 0.05,
+                  duration: 0.4,
                 }}
-                className="group-hover:opacity-100"
+                className="group relative overflow-hidden border border-border bg-bg-card"
               >
-                <div>
-                  <p
-                    style={{
-                      color: "var(--color-accent)",
-                      fontSize: "0.65rem",
-                      letterSpacing: "0.15em",
-                      textTransform: "uppercase",
-                      marginBottom: "0.25rem",
-                    }}
-                  >
-                    {item.category}
-                  </p>
-                  <p
-                    style={{
-                      color: "white",
-                      fontWeight: 600,
-                      fontSize: "0.875rem",
-                    }}
-                  >
-                    {item.title}
-                  </p>
+                {/* Aspect Container */}
+                <div className={`w-full ${getAspectClass(item.span)} relative`}>
+                  {/* Video */}
+                  {item.video && (
+                    <HoverVideo
+                      src={item.video}
+                      aspectRatio={
+                        item.span === "wide"
+                          ? "16/9"
+                          : item.span === "tall"
+                            ? "9/16"
+                            : "1/1"
+                      }
+                      className="w-full h-full"
+                    />
+                  )}
+
+                  {/* Image */}
+                  {item.image && (
+                    <>
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition duration-300" />
+                    </>
+                  )}
+
+                  {/* Title */}
+                  <div className="absolute bottom-3 left-3 text-white opacity-0 group-hover:opacity-100 transition">
+                    <p className="text-sm font-medium">{item.title}</p>
+                    <p className="text-xs text-gray-300">{item.category}</p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </Masonry>
         </motion.div>
       </AnimatePresence>
     </div>

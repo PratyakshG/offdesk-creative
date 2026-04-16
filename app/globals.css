@@ -3,7 +3,6 @@
 @theme {
   --font-display: "Bebas Neue", "Impact", sans-serif;
   --font-body: "Figtree", "Inter", sans-serif;
-
   --color-bg: #151111;
   --color-bg-2: #111111;
   --color-bg-card: #161616;
@@ -11,7 +10,7 @@
   --color-accent-2: #f5a623;
   --color-white: #ffffff;
   --color-off: #f0ede8;
-  --color-muted: #666666;
+  --color-muted: #999999;
   --color-border: #1e1e1e;
   --color-primary: #ff5a1f;
 }
@@ -25,6 +24,14 @@ body {
   color: var(--color-white);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: bold;
 }
 
 ::selection {

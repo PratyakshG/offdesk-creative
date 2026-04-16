@@ -172,17 +172,11 @@ export default function HomePage() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <Reveal>
-            <div className="flex items-center justify-between mb-6">
-              <p
-                style={{ color: "var(--color-muted)", letterSpacing: "0.15em" }}
-                className="text-xs uppercase"
-              >
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
+              <p className="text-xs uppercase text-off tracking-wide">
                 Explore Now
               </p>
-              <p
-                style={{ color: "var(--color-muted)", letterSpacing: "0.15em" }}
-                className="text-xs uppercase"
-              >
+              <p className="text-xs uppercase tracking-wide text-off">
                 Capture the Essence of Your Brand
               </p>
             </div>
@@ -222,10 +216,7 @@ export default function HomePage() {
       >
         <Reveal>
           <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-4">
-            <p
-              style={{ color: "var(--color-muted)" }}
-              className="text-sm leading-relaxed max-w-2xl"
-            >
+            <p className="text-sm leading-relaxed max-w-2xl text-off">
               Videos connect faster, and we help you tell your story in a way
               that resonates. Whether it&apos;s a commercial, campaign, or
               social media reel, our videography captures the spirit of your
@@ -271,7 +262,7 @@ export default function HomePage() {
                   }}
                   className="group cursor-pointer"
                 >
-                  <HoverVideo src="/video-1.mp4" />
+                  <HoverVideo src="/Entrance%20Design%20Reel.mp4?updatedAt=1776164757268" />
                 </div>
               </StaggerItem>
             ))}
@@ -300,12 +291,7 @@ export default function HomePage() {
             .map((_, i) => (
               <span
                 key={i}
-                style={{
-                  color: "var(--color-muted)",
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.2em",
-                  paddingRight: "3rem",
-                }}
+                className="text-off/50 text-xs tracking-wide pr-12"
               >
                 Digital Product Design Experiences. &nbsp;·&nbsp; Art, Web
                 Production &nbsp;·&nbsp; Visual Storytelling
@@ -352,8 +338,8 @@ export default function HomePage() {
                 STUDIO OVERVIEW
               </p>
               <p
-                style={{ color: "var(--color-muted)", lineHeight: 1.8 }}
-                className="text-sm mb-4"
+                style={{ lineHeight: 1.8 }}
+                className="text-sm mb-4 text-off"
               >
                 At Offdesk Creative Studio, we don&apos;t just offer services.
                 We are Experimenters. If you&apos;re a business looking to
@@ -363,16 +349,17 @@ export default function HomePage() {
               </p>
               <div className="space-y-1 mb-6">
                 <p
-                  style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8rem" }}
+                  style={{ fontSize: "0.8rem" }}
+                  className="text-off"
                 >
                   · What We Do
                 </p>
                 <p
                   style={{
-                    color: "rgba(255,255,255,0.4)",
                     fontSize: "0.8rem",
                     paddingLeft: "0.75rem",
                   }}
+                  className="text-off"
                 >
                   — Photo shoots &amp; creative direction, Videography &amp;
                   post production, Graphic design &amp; branding
@@ -427,10 +414,7 @@ export default function HomePage() {
         {/* Design grid */}
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
           <Reveal>
-            <p
-              style={{ color: "rgba(255,255,255,0.5)" }}
-              className="text-sm mb-4"
-            >
+            <p className="text-sm mb-4 text-off">
               We Love Working on Raw Footage and Turning It into Masterpieces
             </p>
           </Reveal>

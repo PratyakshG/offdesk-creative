@@ -101,30 +101,22 @@ export default function ServicesPage() {
               right: "5%",
               bottom: "0",
               opacity: 0.08,
-              fontFamily: "var(--font-display)",
+              fontFamily: "var(--font-body)",
               fontSize: "12rem",
               color: "white",
             }}
           >
             📷
           </div>
-          <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-            <Reveal>
-              <p
-                style={{ color: "var(--color-muted)", letterSpacing: "0.2em" }}
-                className="text-xs uppercase mb-3"
-              >
-                Our Services / Home
-              </p>
-            </Reveal>
+          <div className="z-1">
             <RevealText>
               <h1
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(2.5rem,6vw,4.5rem)",
                   color: "white",
-                  letterSpacing: "0.05em",
                 }}
+                className="font-bold"
               >
                 OUR{" "}
                 <span style={{ color: "var(--color-accent)" }}>SERVICES</span>
@@ -149,22 +141,19 @@ export default function ServicesPage() {
                 <div
                   id={s.id}
                   style={{
-                    border: "1px solid var(--color-border)",
                     padding: "2rem",
                     backgroundColor: "var(--color-bg-card)",
                     cursor: "pointer",
-                    transition: "border-color 0.3s ease",
                   }}
-                  className="group hover:border-[var(--color-accent)]"
+                  className="group border border-border hover:border-accent/80 h-full rounded-lg transition-colors duration-300"
                 >
                   <h2
                     style={{
-                      fontFamily: "var(--font-display)",
                       fontSize: "clamp(1.75rem,3vw,2.5rem)",
-                      color: "var(--color-accent)",
                       lineHeight: 1.1,
                       marginBottom: "0.75rem",
                     }}
+                    className="font-body font-medium text-accent"
                   >
                     {s.title}
                   </h2>
@@ -178,10 +167,9 @@ export default function ServicesPage() {
                     {s.points.map((p) => (
                       <li
                         key={p}
-                        style={{ color: "var(--color-muted)" }}
-                        className="text-xs"
+                        className="text-sm list-disc list-inside text-muted"
                       >
-                        · {p}
+                        {p}
                       </li>
                     ))}
                   </ul>
@@ -250,7 +238,7 @@ export default function ServicesPage() {
               </p>
               <h2
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(1.75rem,3.5vw,2.75rem)",
                   color: "white",
                   lineHeight: 1.2,
@@ -334,7 +322,7 @@ export default function ServicesPage() {
             </p>
             <h2
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-body)",
                 fontSize: "clamp(2rem,4vw,3rem)",
                 color: "white",
                 textAlign: "center",
@@ -420,7 +408,7 @@ export default function ServicesPage() {
               </p>
               <h2
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(1.75rem,3.5vw,3rem)",
                   color: "white",
                   lineHeight: 1.15,
@@ -513,7 +501,7 @@ export default function ServicesPage() {
             </p>
             <h2
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-body)",
                 fontSize: "clamp(1.75rem,3.5vw,3rem)",
                 color: "white",
                 maxWidth: "700px",

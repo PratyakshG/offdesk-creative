@@ -5,19 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Image, ImageKitProvider, Video } from "@imagekit/next";
 
 interface HoverVideoProps {
-  /** Path or URL to the video file */
   src: string;
-  /** Poster image shown before hover */
   poster?: string;
-  /** Optional title shown on hover overlay */
   title?: string;
-  /** Optional category/tag label */
   tag?: string;
-  /** Aspect ratio of the container. Default: "16/9" */
   aspectRatio?: string;
-  /** Whether to loop the video. Default: true */
   loop?: boolean;
-  /** Whether to show the play icon overlay on hover. Default: true */
   showOverlay?: boolean;
   className?: string;
 }
@@ -55,20 +48,6 @@ export default function HoverVideo({
     video.pause();
     // video.currentTime = 0;
   };
-
-  // const handleClick = () => {
-  //   const video = videoRef.current;
-  //   if (!video) return;
-
-  //   setHovered(!hovered);
-  //   if (hovered) {
-  //     video.play();
-  //   }
-  //   if (!hovered) {
-  //     video.pause();
-  //     video.currentTime = 0;
-  //   }
-  // };
 
   return (
     <div
