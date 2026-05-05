@@ -24,10 +24,9 @@ export default function Footer() {
             }}
             className="text-white mb-4"
           >
-            WE DEVELOP &<br />
+            WE DEVELOP & <br />
             <span style={{ color: "var(--color-accent)" }}>CREATE</span>
-            <br />
-            DIGITAL FUTURE.
+            <br /> DIGITAL FUTURE.
           </h2>
         </div>
 
@@ -41,12 +40,13 @@ export default function Footer() {
           </h4>
           <p
             style={{ color: "var(--color-muted)" }}
-            className="text-sm leading-relaxed"
+            className="text-sm leading-relaxed inline"
           >
-            Germany —<br />
-            785 15h Street, Office 478
+            XYZ Colony, Building No. 123
             <br />
-            Berlin, De 81566
+            XYZNagar
+            <br />
+            Delhi - 981723, India
           </p>
         </div>
 
@@ -112,7 +112,7 @@ export default function Footer() {
                 outline: "none",
                 fontSize: "0.8rem",
               }}
-              className="flex-1 py-2 placeholder:text-[var(--color-muted)]"
+              className="flex-1 py-2 placeholder:text-muted"
             />
             <button
               style={{ color: "var(--color-accent)" }}
@@ -124,7 +124,7 @@ export default function Footer() {
           <label className="flex items-center gap-2 mt-3 cursor-pointer">
             <input
               type="checkbox"
-              className="w-3 h-3 accent-[var(--color-accent)]"
+              className="w-3 h-3 accent-accent"
             />
             <span
               style={{ color: "var(--color-muted)" }}

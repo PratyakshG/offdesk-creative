@@ -35,7 +35,7 @@ export default function HoverVideo({
     setHovered(true);
     const video = videoRef.current;
     if (!video) return;
-    video.currentTime = 0;
+    // video.currentTime = 0;
     video.play().catch(() => {
       // Autoplay was blocked — browser requires user interaction first
     });

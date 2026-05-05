@@ -5,6 +5,7 @@ import {
   StaggerItem,
 } from "@/components/Reveal";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BiVideoRecording } from "react-icons/bi";
 import { GiClapperboard, GiFilmStrip } from "react-icons/gi";
@@ -44,29 +45,18 @@ const values = [
   },
 ];
 
-const team = [
-  { name: "Divyat Kanyal", role: "Ph.D.", title: "Founder & Cinematographer" },
-  {
-    name: "Devanshi Kanyal",
-    role: "Ph.D.",
-    title: "Creative Director & Photographer",
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
       {/* ── PAGE HERO ── */}
       <section
         style={{ backgroundColor: "var(--color-bg-2)", paddingTop: "5rem" }}
-        className="relative overflow-hidden"
+        className="relative overflow-hidden border-b border-border"
       >
         <div
           className="relative"
           style={{
             minHeight: "320px",
-            backgroundImage:
-              "linear-gradient(to bottom, rgba(8,8,8,0) 0%, var(--color-bg-2) 100%)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -74,23 +64,6 @@ export default function AboutPage() {
             paddingBottom: "3rem",
           }}
         >
-          {/* Fake BG image overlay */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundColor: "#0e0e0e",
-              zIndex: 0,
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "linear-gradient(135deg, #111 0%, #0a0a0a 100%)",
-              }}
-            />
-          </div>
           <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
             <RevealText>
               <h1
@@ -115,23 +88,12 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <Reveal>
-              <p
-                style={{
-                  color: "var(--color-muted)",
-                  letterSpacing: "0.15em",
-                  marginBottom: "0.75rem",
-                }}
-                className="text-xs uppercase"
-              >
-                MODERN DESIGN
-              </p>
+              <p className="text-sm uppercase mb-3">MODERN DESIGN</p>
             </Reveal>
             <RevealText>
               <h2
                 style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "clamp(2.5rem,5vw,4rem)",
-                  color: "white",
+                  fontSize: "clamp(2.5rem,5vw,8rem)",
                   lineHeight: 1.1,
                 }}
               >
@@ -145,9 +107,8 @@ export default function AboutPage() {
           >
             <p
               style={{
-                color: "var(--color-muted)",
                 lineHeight: 1.9,
-                paddingTop: "0.5rem",
+                paddingTop: "3rem",
               }}
               className="text-sm"
             >
@@ -162,7 +123,7 @@ export default function AboutPage() {
         </div>
 
         {/* Team Photo Grid */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 mt-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 mt-32">
           <StaggerChildren className="grid grid-cols-3 gap-3">
             {[
               { h: "aspect-square" },
@@ -420,7 +381,7 @@ export default function AboutPage() {
                   style={{
                     fontSize: "clamp(2rem,4vw,3rem)",
                   }}
-                  className="font-body font-bold"
+                  className="font-body font-bold leading-tight"
                 >
                   How we craft your videos.
                 </h2>
@@ -466,67 +427,34 @@ export default function AboutPage() {
         }}
         className="py-20"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal direction="left">
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "8px",
-              }}
-            >
-              {[0, 1].map((i) => (
-                <div
-                  key={i}
-                  style={{
-                    backgroundColor: "var(--color-bg-card)",
-                    aspectRatio: "4/3",
-                    border: "1px solid var(--color-border)",
-                    overflow: "hidden",
-                  }}
-                  className="group"
-                >
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background:
-                        i === 0
-                          ? "linear-gradient(135deg,#2a1a06 0%,#0a0a0a 100%)"
-                          : "linear-gradient(135deg,#051a2a 0%,#0a0a0a 100%)",
-                    }}
-                    className="group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-              ))}
-            </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-24 items-start">
+          <Reveal direction="left" className="max-lg:order-2">
+            <Image
+              src="/images/about/studio-1.png"
+              alt="studio-image"
+              width={400}
+              height={600}
+              className="object-contain h-auto w-full aspect-square"
+            />
           </Reveal>
+
           <Reveal
             direction="right"
             delay={0.15}
           >
-            <p
-              style={{
-                color: "var(--color-muted)",
-                letterSpacing: "0.15em",
-                marginBottom: "0.75rem",
-              }}
-              className="text-xs uppercase"
-            >
+            <p className="text-sm uppercase font-semibold mb-3">
               PROFESSIONAL STUDIO
             </p>
             <h2
               style={{
-                fontFamily: "var(--font-body)",
                 fontSize: "clamp(2rem,4vw,3rem)",
-                color: "white",
-                marginBottom: "1rem",
               }}
+              className="mb-4"
             >
               Our Studio
             </h2>
             <p
-              style={{ color: "var(--color-muted)", lineHeight: 1.9 }}
+              style={{ lineHeight: 1.9 }}
               className="text-sm"
             >
               Step into a space designed for creating. With the perfect blend of
@@ -534,141 +462,16 @@ export default function AboutPage() {
               happens. Whether it&apos;s an intimate product shoot or a
               full-scale campaign we&apos;ve got you covered.
             </p>
-          </Reveal>
-        </div>
-      </section>
 
-      {/* ── TEAM ── */}
-      <section
-        style={{
-          backgroundColor: "var(--color-bg)",
-          borderTop: "1px solid var(--color-border)",
-        }}
-        className="py-20"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-center justify-between mb-10">
-            <Reveal>
-              <div>
-                <p
-                  style={{
-                    color: "var(--color-muted)",
-                    letterSpacing: "0.15em",
-                  }}
-                  className="text-xs uppercase mb-1"
-                >
-                  OUR TEAM
-                </p>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "clamp(2rem,4vw,3rem)",
-                    color: "white",
-                  }}
-                >
-                  Meet the Team
-                </h2>
-              </div>
+            <Reveal delay={0.2}>
+              <Image
+                src="/images/about/studio-2.png"
+                alt="studio-image"
+                width={400}
+                height={600}
+                className="mt-24 w-full"
+              />
             </Reveal>
-            <Reveal delay={0.1}>
-              <Link
-                href="#"
-                style={{ color: "var(--color-accent)" }}
-                className="text-xs uppercase tracking-widest font-semibold hover:opacity-75"
-              >
-                View More →
-              </Link>
-            </Reveal>
-          </div>
-          <StaggerChildren className="grid md:grid-cols-2 gap-6">
-            {team.map((member) => (
-              <StaggerItem key={member.name}>
-                <div
-                  style={{
-                    backgroundColor: "var(--color-bg-card)",
-                    border: "1px solid var(--color-border)",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      aspectRatio: "4/3",
-                      backgroundColor: "#0d0d0d",
-                      overflow: "hidden",
-                    }}
-                    className="group"
-                  >
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        background:
-                          "linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%)",
-                      }}
-                      className="group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <div style={{ padding: "1.25rem" }}>
-                    <p style={{ color: "white", fontWeight: 600 }}>
-                      {member.name}
-                      <span
-                        style={{
-                          color: "var(--color-muted)",
-                          fontWeight: 400,
-                          marginLeft: "4px",
-                          fontSize: "0.75rem",
-                        }}
-                      >
-                        {member.role}
-                      </span>
-                    </p>
-                    <p
-                      style={{ color: "var(--color-muted)" }}
-                      className="text-xs mt-1"
-                    >
-                      {member.title}
-                    </p>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      </section>
-
-      {/* ── JOIN CTA ── */}
-      <section
-        style={{
-          backgroundColor: "var(--color-bg-2)",
-          borderTop: "1px solid var(--color-border)",
-        }}
-        className="py-20"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
-          <RevealText>
-            <h2
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "clamp(2.5rem,6vw,5rem)",
-                color: "white",
-              }}
-            >
-              Join Our Journey.
-            </h2>
-          </RevealText>
-          <Reveal delay={0.2}>
-            <Link
-              href="/contact"
-              style={{
-                backgroundColor: "var(--color-accent)",
-                color: "white",
-                display: "inline-block",
-                marginTop: "2rem",
-              }}
-              className="text-sm uppercase tracking-widest font-semibold px-8 py-3.5 hover:opacity-85 transition-opacity"
-            >
-              Get In Touch
-            </Link>
           </Reveal>
         </div>
       </section>

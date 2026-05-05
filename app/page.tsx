@@ -60,29 +60,12 @@ export default function HomePage() {
               >
                 <h1
                   style={{
-                    fontFamily: "var(--font-display)",
                     fontSize: "clamp(4rem,9vw,8rem)",
-                    lineHeight: 0.92,
-                    letterSpacing: "0.02em",
-                    color: "rgba(255,255,255,0.12)",
                   }}
+                  className="font-display leading-none tracking-wide text-white/12 uppercase grid break-after-all"
                 >
-                  WE ARE
-                </h1>
-              </RevealText>
-            </div>
-            <div style={{ overflow: "hidden" }}>
-              <RevealText delay={0.1}>
-                <h1
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(4rem,9vw,8rem)",
-                    lineHeight: 0.92,
-                    letterSpacing: "0.02em",
-                    color: "white",
-                  }}
-                >
-                  CREATIVE
+                  <span>We Are</span>{" "}
+                  <span className="text-white">Creative</span>
                 </h1>
               </RevealText>
             </div>
@@ -134,15 +117,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PHOTOSTUDIO MARQUEE ── */}
-      <section
-        style={{
-          backgroundColor: "var(--color-bg)",
-          borderTop: "1px solid var(--color-border)",
-          borderBottom: "1px solid var(--color-border)",
-          overflow: "hidden",
-        }}
-        className="py-4"
-      >
+      <section className="py-4 bg-bg border-t border-b border-border overflow-hidden">
         <div
           className="flex whitespace-nowrap marquee-track"
           style={{ width: "max-content" }}
@@ -171,49 +146,69 @@ export default function HomePage() {
         className="py-12"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <Reveal>
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
-              <p className="text-xs uppercase text-off tracking-wide">
-                Explore Now
-              </p>
-              <p className="text-xs uppercase tracking-wide text-off">
-                Capture the Essence of Your Brand
-              </p>
-            </div>
-          </Reveal>
-          <StaggerChildren className="grid grid-cols-7 gap-2 *:odd:col-span-2 *:even:col-span-3 *:last:place-content-end">
-            {[...Array(3)].map((_, i) => (
-              <StaggerItem key={i}>
-                <div
-                  style={{
-                    backgroundColor: "var(--color-bg-card)",
-                    aspectRatio: "1/1",
-                    border: "1px solid var(--color-border)",
-                  }}
-                  className="overflow-hidden group"
-                >
-                  <Image
-                    src={`/images/home/image${i + 1}.png`}
-                    alt="images"
-                    height={300}
-                    width={300}
-                    className="group-hover:scale-105 transition-transform duration-700 h-full w-full object-cover"
-                  />
-                </div>
-              </StaggerItem>
-            ))}
+          <StaggerChildren className="grid lg:grid-cols-7 gap-2 *:odd:col-span-2 *:even:col-span-3 *:last:place-content-end">
+            <StaggerItem className="flex flex-col-reverse lg:flex-col justify-between gap-4">
+              <div className="overflow-hidden group">
+                <Image
+                  src={`/images/home/image1.png`}
+                  alt="images"
+                  height={300}
+                  width={300}
+                  className="group-hover:scale-105 transition-transform duration-700 h-full w-full object-cover"
+                />
+              </div>
+
+              <Reveal className="flex flex-col mt-6 font-thin">
+                <p className="text-sm uppercase tracking-wide">Explore Now</p>
+                <p className="text-[40px] mt-4 leading-none">
+                  Capture the Essence of Your Brand
+                </p>
+              </Reveal>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div
+                style={{
+                  backgroundColor: "var(--color-bg-card)",
+                  aspectRatio: "1/1",
+                  border: "1px solid var(--color-border)",
+                }}
+                className="overflow-hidden group"
+              >
+                <Image
+                  src={`/images/home/image2.png`}
+                  alt="images"
+                  height={300}
+                  width={300}
+                  className="group-hover:scale-105 transition-transform duration-700 h-full w-full object-cover"
+                />
+              </div>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div
+                style={{
+                  backgroundColor: "var(--color-bg-card)",
+                  aspectRatio: "1/1",
+                  border: "1px solid var(--color-border)",
+                }}
+                className="overflow-hidden group"
+              >
+                <Image
+                  src={`/images/home/image3.png`}
+                  alt="images"
+                  height={300}
+                  width={300}
+                  className="group-hover:scale-105 transition-transform duration-700 h-full w-full object-cover"
+                />
+              </div>
+            </StaggerItem>
           </StaggerChildren>
         </div>
       </section>
 
-      {/* ── AD-SHOOTS MARQUEE ── */}
-      <section
-        style={{
-          backgroundColor: "var(--color-bg-2)",
-          overflow: "hidden",
-          paddingTop: "3rem",
-        }}
-      >
+      {/* ── AD-SHOOTS ── */}
+      <section className="overflow-hidden pt-12">
         <Reveal>
           <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-4">
             <p className="text-sm leading-relaxed max-w-2xl text-off">
@@ -224,6 +219,7 @@ export default function HomePage() {
             </p>
           </div>
         </Reveal>
+
         <div className="overflow-hidden py-2">
           <div
             className="flex whitespace-nowrap marquee-track"
@@ -247,7 +243,7 @@ export default function HomePage() {
               ))}
           </div>
         </div>
-        {/* Video grid */}
+
         <div className="max-w-7xl mx-auto px-6 lg:px-10 pb-12 pt-6">
           <StaggerChildren className="grid grid-cols-3 gap-2">
             {[...Array(3)].map((_, i) => (
@@ -315,8 +311,7 @@ export default function HomePage() {
                 lineHeight: 1.1,
               }}
             >
-              LET&apos;S BUILD SOMETHING
-              <br />
+              LET&apos;S BUILD SOMETHING <br />
               <span style={{ color: "var(--color-accent)" }}>AMAZING</span>{" "}
               TOGETHER.
             </h2>
@@ -380,14 +375,7 @@ export default function HomePage() {
       </section>
 
       {/* ── GRAPHIC DESIGN MARQUEE ── */}
-      <section
-        style={{
-          backgroundColor: "var(--color-bg)",
-          borderTop: "1px solid var(--color-border)",
-          overflow: "hidden",
-        }}
-        className="pt-12"
-      >
+      <section className="pt-12 bg-bg overflow-hidden border-t border-border">
         <div className="overflow-hidden py-2">
           <div
             className="flex whitespace-nowrap marquee-track"
@@ -411,13 +399,12 @@ export default function HomePage() {
           </div>
         </div>
 
+        <Reveal className="text-center font-semibold text-5xl max-w-4xl place-self-center">
+          <p>We Love Working on Raw Footage and Turning It into Masterpieces</p>
+        </Reveal>
+
         {/* Design grid */}
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-8">
-          <Reveal>
-            <p className="text-sm mb-4 text-off">
-              We Love Working on Raw Footage and Turning It into Masterpieces
-            </p>
-          </Reveal>
           <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {[...Array(4)].map((_, i) => (
               <StaggerItem key={i}>
@@ -438,6 +425,66 @@ export default function HomePage() {
                     }}
                     className="group-hover:scale-110 transition-transform duration-700"
                   />
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* POST PRODUCTION VIDEOS */}
+      <section className="overflow-hidden pt-12">
+        <Reveal>
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-4">
+            <p className="text-sm leading-relaxed max-w-2xl text-off">
+              Videos connect faster, and we help you tell your story in a way
+              that resonates. Whether it&apos;s a commercial, campaign, or
+              social media reel, our videography captures the spirit of your
+              brand.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="overflow-hidden py-2">
+          <div
+            className="flex whitespace-nowrap marquee-track"
+            style={{ width: "max-content", animationDirection: "reverse" }}
+          >
+            {Array(6)
+              .fill(null)
+              .map((_, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: "clamp(4rem,10vw,8rem)",
+                    color: i % 2 === 0 ? "var(--color-accent)" : "transparent",
+                    WebkitTextStroke: `1px var(--color-accent)`,
+                    opacity: i % 2 === 0 ? 1 : 0.3,
+                  }}
+                  className="pr-8 lg:pr-16 font-bold font-body"
+                >
+                  POST-PRODUCTION
+                </span>
+              ))}
+          </div>
+        </div>
+
+        {/* Video grid */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 pb-12 pt-6">
+          <StaggerChildren className="grid grid-cols-3 gap-2">
+            {[...Array(3)].map((_, i) => (
+              <StaggerItem key={i}>
+                <div
+                  style={{
+                    backgroundColor: "var(--color-bg-card)",
+                    aspectRatio: "16/9",
+                    border: "1px solid var(--color-border)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                  className="group cursor-pointer"
+                >
+                  <HoverVideo src="/Entrance%20Design%20Reel.mp4?updatedAt=1776164757268" />
                 </div>
               </StaggerItem>
             ))}
@@ -483,40 +530,26 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section
-        style={{ backgroundColor: "var(--color-bg)" }}
-        className="py-20"
-      >
+      <section className="py-20 bg-neutral-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <Reveal>
-            <p
-              style={{ color: "var(--color-muted)", letterSpacing: "0.2em" }}
-              className="text-xs uppercase text-center mb-2"
-            >
+            <h2 className="text-sm uppercase text-center text-bg">
               TESTIMONIALS
-            </p>
-            <h2
+            </h2>
+            <p
               style={{
-                fontFamily: "var(--font-display)",
                 fontSize: "clamp(2rem,4vw,3rem)",
-                color: "white",
-                textAlign: "center",
-                marginBottom: "3rem",
               }}
+              className="font-display text-center mb-8 text-black font-bold"
             >
               PEOPLE SAY
-            </h2>
+            </p>
           </Reveal>
+
           <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {testimonials.map((t) => (
               <StaggerItem key={t.name}>
-                <div
-                  style={{
-                    backgroundColor: "var(--color-bg-card)",
-                    border: "1px solid var(--color-border)",
-                    padding: "1.5rem",
-                  }}
-                >
+                <div className="bg-bg-card/10 shadow border border-border h-full p-6 text-black">
                   <div className="flex gap-0.5 mb-3">
                     {[...Array(5)].map((_, i) => (
                       <span
@@ -530,24 +563,9 @@ export default function HomePage() {
                       </span>
                     ))}
                   </div>
-                  <p
-                    style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}
-                    className="text-sm mb-4"
-                  >
-                    {t.text}
-                  </p>
-                  <p
-                    style={{ color: "white", fontWeight: 600 }}
-                    className="text-sm"
-                  >
-                    {t.name}
-                  </p>
-                  <p
-                    style={{ color: "var(--color-muted)" }}
-                    className="text-xs"
-                  >
-                    {t.role}
-                  </p>
+                  <p className="text-sm mb-4">{t.text}</p>
+                  <p className="text-sm font-semibold">{t.name}</p>
+                  <p className="text-xs">{t.role}</p>
                 </div>
               </StaggerItem>
             ))}

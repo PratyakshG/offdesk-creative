@@ -10,36 +10,31 @@ export default function PortfolioPage() {
       {/* ── HERO ── */}
       <section
         style={{ backgroundColor: "var(--color-bg-2)", paddingTop: "5rem" }}
-        className="relative"
+        className="relative overflow-hidden border-b border-border"
       >
         <div
+          className="relative"
           style={{
-            minHeight: "220px",
+            minHeight: "320px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "flex-end",
-            paddingBottom: "2.5rem",
-            position: "relative",
-            overflow: "hidden",
+            paddingBottom: "3rem",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(135deg, #0e0e0e 0%, #0a0a0a 100%)",
-            }}
-          />
           <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-            <Reveal delay={0.1}>
-              <p
-                style={{ color: "var(--color-muted)", letterSpacing: "0.2em" }}
-                className="text-xs uppercase mb-3"
+            <RevealText>
+              <h1
+                style={{
+                  fontSize: "clamp(2.5rem,6vw,4.5rem)",
+                  color: "white",
+                }}
+                className="font-body uppercase font-bold"
               >
-                HOME &nbsp;/&nbsp; PORTFOLIO – MASONRY
-              </p>
-            </Reveal>
+                Portfolio
+              </h1>
+            </RevealText>
           </div>
         </div>
       </section>

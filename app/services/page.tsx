@@ -6,6 +6,7 @@ import {
   StaggerChildren,
   StaggerItem,
 } from "@/components/Reveal";
+import Image from "next/image";
 
 export const metadata: Metadata = { title: "Our Services" };
 
@@ -42,7 +43,7 @@ const services = [
 
 const whyUs = [
   {
-    icon: "📸",
+    image: "/images/services/photoshoot.png",
     title: "Photoshoot",
     points: [
       "Lifestyle Shoots",
@@ -51,17 +52,17 @@ const whyUs = [
     ],
   },
   {
-    icon: "🎬",
+    image: "/images/services/videography.png",
     title: "Videography",
-    points: ["Campaign Videos", "Social Media Reels"],
+    points: ["Campaign Videos", "Social Media Reels", "Ad Shoots"],
   },
   {
-    icon: "✏️",
+    image: "/images/services/graphic-design.png",
     title: "Graphic Design",
-    points: ["Brand Identity", "Social Creatives"],
+    points: ["Brand Identity", "Social Media Creatives"],
   },
   {
-    icon: "🎞️",
+    image: "/images/services/post-production.png",
     title: "Post Production",
     points: ["Photo Retouching", "Video Editing"],
   },
@@ -87,27 +88,6 @@ export default function ServicesPage() {
             overflow: "hidden",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(135deg, #0e0e0e 0%, #0a0a0a 100%)",
-            }}
-          />
-          {/* Camera icon placeholder */}
-          <div
-            style={{
-              position: "absolute",
-              right: "5%",
-              bottom: "0",
-              opacity: 0.08,
-              fontFamily: "var(--font-body)",
-              fontSize: "12rem",
-              color: "white",
-            }}
-          >
-            📷
-          </div>
           <div className="z-1">
             <RevealText>
               <h1
@@ -118,8 +98,7 @@ export default function ServicesPage() {
                 }}
                 className="font-bold"
               >
-                OUR{" "}
-                <span style={{ color: "var(--color-accent)" }}>SERVICES</span>
+                OUR SERVICES
               </h1>
             </RevealText>
           </div>
@@ -181,121 +160,73 @@ export default function ServicesPage() {
       </section>
 
       {/* ── DEVELOP & CREATE ── */}
-      <section
-        style={{
-          backgroundColor: "var(--color-bg-2)",
-          borderTop: "1px solid var(--color-border)",
-        }}
-        className="py-20"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
-          <Reveal direction="left">
-            <div
-              style={{
-                aspectRatio: "4/3",
-                backgroundColor: "var(--color-bg-card)",
-                border: "1px solid var(--color-border)",
-                overflow: "hidden",
-                position: "relative",
-              }}
-              className="group"
-            >
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  background: "linear-gradient(135deg,#0d1a0d 0%,#0a0a0a 100%)",
-                }}
-                className="group-hover:scale-105 transition-transform duration-700"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <span style={{ fontSize: "4rem", opacity: 0.15 }}>🎬</span>
-              </div>
-            </div>
-          </Reveal>
+      <section className="bg-bg-2 border-t border-border">
+        <div className="mx-auto grid lg:grid-cols-3 items-center">
           <Reveal
             direction="right"
             delay={0.15}
+            className="col-span-2 flex flex-col items-center justify-between h-full gap-10 pt-10 lg:pt-20"
           >
-            <div>
-              <p
-                style={{
-                  color: "var(--color-muted)",
-                  letterSpacing: "0.15em",
-                  marginBottom: "0.75rem",
-                }}
-                className="text-xs uppercase"
-              >
-                WELCOME
-              </p>
+            <div className="space-y-4 px-6 lg:px-36">
+              <p className="text-sm uppercase font-semibold">WELCOME</p>
               <h2
                 style={{
-                  fontFamily: "var(--font-body)",
                   fontSize: "clamp(1.75rem,3.5vw,2.75rem)",
-                  color: "white",
-                  lineHeight: 1.2,
-                  marginBottom: "1rem",
                 }}
+                className="font-body text-white leading-none"
               >
                 We develop &amp; create
                 <br />
                 digital future.
               </h2>
-              <p
-                style={{
-                  color: "var(--color-muted)",
-                  lineHeight: 1.9,
-                  marginBottom: "1.5rem",
-                }}
-                className="text-sm"
-              >
-                Offdesk Creative Studio is more than just a photo and video
-                studio. We are experimenters. If you&apos;re a business looking
-                to showcase your products, a creative agency looking to create
-                images, or a brand that needs to produce content — we are the
-                team for you.
+              <p className="text-sm lg:w-1/2 leading-relaxed lg:place-self-end">
+                At Marketing Samadhan Studio, we turn your ideas into visuals
+                that speak louder than words. From crisp photos to engaging
+                videos, thoughtful graphic designs, and flawless
+                post-production, every service we offer is designed to bring out
+                the best in your brand. With creativity and precision as our
+                cornerstones, we&apos;re here to help you stand out in the
+                crowded digital world.
               </p>
-              <div className="space-y-2 mb-6">
-                <p
-                  style={{ color: "rgba(255,255,255,0.5)", fontWeight: 600 }}
-                  className="text-xs uppercase tracking-wider"
-                >
-                  What We Do
-                </p>
-                <p
-                  style={{ color: "var(--color-muted)" }}
-                  className="text-xs"
-                >
+            </div>
+
+            <div className="flex items-center justify-between bg-bg w-full lg:mt-14 gap-5">
+              {/* image */}
+              <Image
+                src="/images/services/hero-2.png"
+                alt="what-we-do"
+                width={300}
+                height={300}
+                className="aspect-square w-1/2 lg:w-3/5"
+              />
+
+              <div className="space-y-3 pr-3 lg:px-10 py-6">
+                <p className="font-medium text-lg">What We Do</p>
+                <p className="text-sm mb-4 lg:mb-12">
                   All kinds of commercial shoots — Photoshoots, product shoots,
-                  lifestyle shoots
+                  lifestyle shoots, Graphic Designs, Motion Videos,
+                  Illustrations and much more.
                 </p>
-                <p
-                  style={{
-                    color: "rgba(255,255,255,0.5)",
-                    fontWeight: 600,
-                    marginTop: "0.75rem",
-                  }}
-                  className="text-xs uppercase tracking-wider"
-                >
-                  The Opportunities
-                </p>
-                <p
-                  style={{ color: "var(--color-muted)" }}
-                  className="text-xs"
-                >
+                <p className="font-medium text-lg">The Opportunities</p>
+                <p className="text-sm">
                   Our team will accompany your vision — Collaboration &amp;
-                  ideas, Turning ideas to reality
+                  ideas, Turning your ideas into reality.
                 </p>
               </div>
             </div>
+          </Reveal>
+
+          <Reveal
+            direction="left"
+            className="max-lg:hidden"
+          >
+            <Image
+              src="/images/services/hero-bg.png"
+              alt="hero-img"
+              width={480}
+              height={800}
+              className="h-full max-h-210 object-cover"
+            />
           </Reveal>
         </div>
       </section>
@@ -310,14 +241,7 @@ export default function ServicesPage() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <Reveal>
-            <p
-              style={{
-                color: "var(--color-muted)",
-                letterSpacing: "0.15em",
-                marginBottom: "0.75rem",
-              }}
-              className="text-xs uppercase text-center"
-            >
+            <p className="text-sm uppercase text-center mb-3">
               OUR SPECIALTIES
             </p>
             <h2
@@ -332,53 +256,32 @@ export default function ServicesPage() {
               What We Do the Best
             </h2>
           </Reveal>
-          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {whyUs.map((item) => (
-              <StaggerItem key={item.title}>
-                <div
-                  style={{
-                    border: "1px solid var(--color-border)",
-                    padding: "1.5rem",
-                    backgroundColor: "var(--color-bg-card)",
-                  }}
-                  className="group hover:border-[var(--color-accent)] transition-colors"
-                >
-                  <div
-                    style={{
-                      backgroundColor: "var(--color-bg-2)",
-                      width: "48px",
-                      height: "48px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: "1rem",
-                      fontSize: "1.5rem",
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-                  <h3
-                    style={{
-                      color: "white",
-                      fontWeight: 600,
-                      marginBottom: "0.75rem",
-                    }}
-                    className="text-sm"
-                  >
-                    {item.title}
-                  </h3>
-                  <ul className="space-y-1">
-                    {item.points.map((p) => (
-                      <li
-                        key={p}
-                        style={{ color: "var(--color-muted)" }}
-                        className="text-xs"
-                      >
-                        · {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <StaggerItem
+                key={item.title}
+                className="group lg:even:mt-10 overflow-hidden"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={300}
+                  height={400}
+                  className="aspect-3/4 object-cover hover:scale-105 transition-transform"
+                />
+
+                <h3 className="text-lg font-bold mt-6">{item.title}</h3>
+                <ul className="space-y-0.5 mt-2">
+                  {item.points.map((p) => (
+                    <li
+                      key={p}
+                      className="text-xs list-disc list-inside"
+                    >
+                      {p}
+                    </li>
+                  ))}
+                </ul>
               </StaggerItem>
             ))}
           </StaggerChildren>
@@ -391,20 +294,41 @@ export default function ServicesPage() {
           backgroundColor: "var(--color-bg-2)",
           borderTop: "1px solid var(--color-border)",
         }}
-        className="py-20"
+        className="py-10"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex items-center gap-6">
+            <Reveal
+              direction="right"
+              delay={0.1}
+            >
+              <Image
+                src="/images/services/why-1.png"
+                alt="why-us"
+                width={318}
+                height={526}
+                className="object-cover"
+              />
+            </Reveal>
+
+            <Reveal
+              direction="right"
+              delay={0.15}
+            >
+              <Image
+                src="/images/services/why-2.png"
+                alt="why-us"
+                width={318}
+                height={526}
+                className="lg:mt-10 object-cover"
+              />
+            </Reveal>
+          </div>
+
           <Reveal direction="left">
             <div>
-              <p
-                style={{
-                  color: "var(--color-muted)",
-                  letterSpacing: "0.15em",
-                  marginBottom: "0.75rem",
-                }}
-                className="text-xs uppercase"
-              >
-                CREATIVE PROMISE
+              <p className="text-sm uppercase font-semibold">
+                Creative Approach
               </p>
               <h2
                 style={{
@@ -419,7 +343,6 @@ export default function ServicesPage() {
               </h2>
               <p
                 style={{
-                  color: "var(--color-muted)",
                   lineHeight: 1.9,
                   marginBottom: "1.5rem",
                 }}
@@ -443,43 +366,6 @@ export default function ServicesPage() {
               </Link>
             </div>
           </Reveal>
-          <Reveal
-            direction="right"
-            delay={0.15}
-          >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "8px",
-              }}
-            >
-              {[0, 1].map((i) => (
-                <div
-                  key={i}
-                  style={{
-                    backgroundColor: "var(--color-bg-card)",
-                    aspectRatio: "1",
-                    border: "1px solid var(--color-border)",
-                    overflow: "hidden",
-                  }}
-                  className="group"
-                >
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background:
-                        i === 0
-                          ? "linear-gradient(135deg,#1a0d06 0%,#0a0a0a 100%)"
-                          : "linear-gradient(135deg,#060d1a 0%,#0a0a0a 100%)",
-                    }}
-                    className="group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-              ))}
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -493,20 +379,12 @@ export default function ServicesPage() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
           <Reveal>
-            <p
-              style={{ color: "var(--color-muted)", letterSpacing: "0.15em" }}
-              className="text-xs uppercase mb-3"
-            >
-              OUR PROMISE TO YOU
-            </p>
+            <p className="text-sm uppercase mb-3">OUR PROMISE TO YOU</p>
             <h2
               style={{
-                fontFamily: "var(--font-body)",
                 fontSize: "clamp(1.75rem,3.5vw,3rem)",
-                color: "white",
-                maxWidth: "700px",
-                margin: "0 auto 1rem",
               }}
+              className="max-w-200 mx-auto"
             >
               At Studio Samadhan, we believe in building real endings, not just
               portfolios. When you work with us, you&apos;re not just hiring a
